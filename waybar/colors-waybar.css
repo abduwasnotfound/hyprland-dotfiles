@@ -1,0 +1,13 @@
+#waybar {
+    background: {{background}};
+    color: {{foreground}};
+}
+
+#workspaces button {
+    color: {{color7}};
+}
+
+#clock {
+    color: {{color4}};
+}
+

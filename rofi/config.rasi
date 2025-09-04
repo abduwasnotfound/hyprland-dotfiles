@@ -1,0 +1,91 @@
+
+
+configuration{
+
+display-drun: "        Applications: ";
+drun-display-format: "{icon} {name}";
+font: "SF Pro Text 12";
+show-icons:true;
+}
+
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+*{
+text: #f7f8fa;
+elements:#C678DD;
+
+background-color: @background;
+}
+
+prompt {
+text-color: @text;
+}
+
+
+
+element{
+padding: 25px;
+text-size: 12px;
+border-radius: 0px;
+color: @elements;
+text-color: @elements;
+}
+
+element selected.normal{
+text-color:#4d5054;
+border: 10px;
+border-radius: 10px;
+color: @elements;
+foreground: @elements;
+background-color: @selected-normal-background;
+}
+
+element normal active{
+color: @elements;
+}
+
+element selected active{
+foreground: @elements;
+}
+
+element-text{
+text-color: @text;
+background-color : inherit;
+}
+
+element-icon{
+size: 30px;
+background-color: inherit;
+}
+
+inputbar{
+children: [prompt, entry];
+border-color: #5c84bf;
+padding: 15px;
+color: #5c84bf;
+}
+
+
+listview{
+padding:40px;
+lines: 5;
+spacing: 0;
+}
+
+
+button-selected{
+background-color: #0a1930 ;
+
+}
+
+
+window{
+width: 35%;
+border-radius:10px;
+border:5px;
+border-color:@selected-urgent-background;
+}
+
+entry{
+text-color:@text;
+}

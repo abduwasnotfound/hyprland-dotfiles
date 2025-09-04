@@ -1,0 +1,35 @@
+@import url("/home/abdullah/.cache/wal/colors-waybar.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+window {
+    background-color: @background;
+    border: 2px solid @color4;
+    border-radius: 12px;
+}
+
+label {
+    color: @color3;
+}
+
+progressbar {
+    min-height: 8px;
+    border-radius: 8px;
+    background: @color10;
+}
+
+progressbar > trough > progress {
+    background: linear-gradient(90deg, @color4, @color7);
+    border-radius: 8px;
+}
+
+
+image {
+    min-width: 24px;
+    color: @color4;
+    min-height: 24px;
+}
+

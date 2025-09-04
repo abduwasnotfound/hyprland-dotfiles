@@ -1,0 +1,292 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 42, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+  "margin-top":10,
+  "margin-left":10,
+  "margin-right":10,
+
+
+
+    "modules-left": [
+        "hyprland/workspaces","custom/tray_separator","wlr/taskbar",
+    ],
+    "modules-center": [
+        "custom/spotify",
+        "custom/space",
+        "custom/tray_separator",
+        "clock"
+    ],
+    "modules-right": [
+        
+        "group/modules",
+        "custom/tray_separator",
+        "custom/wlogout"
+        
+    ],
+    // Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}",
+         "persistent-workspaces": {
+             "1": [],
+             "2": [],
+             "3": [],
+             "4": [],
+             "5": []
+     }
+    },
+
+  "hyprland/window": {  
+//"format": "{}"   // <--- these is the default value  
+"format": "<span font='9' rise='-4444'>{}</span>"  
+},
+
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+"custom/space":{
+    "format":"    ",
+  },
+
+"group/modules":{
+    "orientation":"horizontal",
+    "modules":["tray","custom/space","custom/tray_separator","custom/space","cava","custom/space","custom/tray_separator","pulseaudio","network","custom/uptime","custom/swaync"]
+  },
+
+
+    
+        "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    
+"clock": {
+  "format": "󰥔  {:%I:%M %p}",               // 12-hour time with AM/PM
+  "format-alt": "{  %d·%m·%y}",
+  "orientation":"inherit",
+    "tooltip-format": "<span>{calendar}</span>",  // show calendar on hover or click
+  "calendar": {
+    "mode": "month",                     // full month view
+    "format": {
+      "months": "<span color='#ff6699'><b>{}</b></span>",
+      "days":   "<span color='#cdd6f4'><b>{}</b></span>",
+      "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+      "today": "<span color='#ffcc66'><b>{}</b></span>"
+    }
+  }
+},
+
+
+
+        "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+        "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format": " {icon} ", // only show the icon
+        "format-disconnected": " 󰤯 ", // icon when no internet
+        "format-icons": [
+            "󰤟", // weak signal (0–25%)
+            "󰤢", // medium signal (25–50%)
+            "󰤥", // strong signal (50–75%)
+            "󰤨"  // very strong signal (75–100%)
+        ],
+          "tooltip-format": "{essid}",
+        "on-click":"nm-connection-editor"
+        
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}",
+        "format-bluetooth": " {icon} ",
+        "format-bluetooth-muted": "󰟎 ",
+        "format-muted": "  ",
+        "tooltip-format": "{volume}%",
+        "format-icons": {
+            "headphone": "  ",
+            "hands-free": " ",
+            "headset": "",
+            
+            "default": ["  ", "  ", "  "]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right":"blueman-manager"
+    },
+"custom/wlogout": {
+    "format": "",   // Power icon (Font Awesome/Nerd Font required)
+    "tooltip": "",
+    "on-click": "wlogout", 
+    "on-click-right": "wlogout -p -L",   // Optional: right click to show in left
+    "interval": 0
+},
+
+
+"pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+},
+    
+  "custom/uptime": {
+    "exec": "uptime -p | sed 's/up //'",
+    "interval": 60,
+    "format": " " ,
+    "on-click": "rofi -show drun",
+    "tooltip": true,
+    "tooltip-format":"{}"
+  },
+  "custom/tray_separator": {
+    "exec": "echo '|'",
+    "interval": 0,
+    "format": "{}",
+    "tooltip": false
+  },
+
+
+  "group/pa":{
+    "orientation":"right",
+    "drawer":{
+      "transition-duration":500,
+      "children-class": "misc-modules",
+      "transition-top-bottom":false
+    },
+    "modules":[
+    "custom/tray_separator",
+    "custom/uptime"
+    ]
+  },
+  
+  "custom/swaync": {
+    "format": "    ",  // Bell icon (Font Awesome or Nerd Font)
+    "tooltip": "Open Notification Center",
+    "on-click": "swaync-client -t",  // toggles the swaync window
+    "on-click-right": "swaync-client -C", // clear notifications on right click
+    "interval": 0
+},
+
+
+"window": {
+    "format": "{icon} {title}",
+    "icon": "", // optional default icon if the window has no icon
+    "max-length": 30
+},
+
+"mpris": {
+    "format": " {player_icons} {title} - {artist}", // what you see
+    "format-paused": "  {title} - {artist}",
+    "format-playing": "   {title} - {artist}",
+    "format-disconnected": " Not Playing",
+    "player-icons": {
+        "spotify": "",   // Spotify icon
+        "default": ""
+    },
+    "ignored-players": ["chromium", "firefox"], // optional
+    "on-click": "playerctl play-pause",         // left click
+    "on-click-right": "playerctl next",         // right click
+    "on-click-middle": "playerctl previous"     // middle click
+
+  },
+
+"custom/spotify": {
+  "format": "{}",
+  "interval": 1,
+  "exec": "~/.config/waybar/scripts/spotify.sh",
+  "on-click": "playerctl play-pause -p spotify",
+  "on-click-right": "playerctl next -p spotify",
+  "on-click-middle": "playerctl previous -p spotify"
+},
+
+
+ "cava": {
+    //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 30,
+        "exec": "sleep 3 && cava -p /home/abdullah/.config/cava/cava.conf | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
+    "autosens": 1,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pipewire",
+    "source": "auto",
+    "stereo": true,
+    "bar_delimiter": 0,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "hide_on_silence": true,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+
+  },
+
+"custom/cava": {
+    "exec": "cava -p /home/abdullah/.config/cava/cava.conf --raw | sed -u 's/;/ /g'",
+    "interval": 0,
+    "hide_on_silence": false
+},
+
+  "custom/spotify-visualizer": {
+    "exec": "~/.config/waybar/scripts/spotify_cava.sh",
+    "interval": 1,
+    "format": "{}",
+    "scroll": false
+}
+
+
+
+}

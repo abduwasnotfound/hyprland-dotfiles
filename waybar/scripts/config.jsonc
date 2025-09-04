@@ -1,0 +1,172 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": 30,
+  "exclusive": true,
+
+  // margins from screen edges
+  
+
+
+  "modules-left": ["clock","group/misc"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["network","group/pa","custom/uptime"],
+
+ 
+"hyprland/workspaces": {
+        "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{icon}",
+         "orientation":"horizontal",
+         "format-icons": {
+           
+             //"urgent": "",
+             "focused": "",
+            "active":"",
+            "default": ""
+         },
+      "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+        },
+
+
+
+  "custom/launcher": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+
+  
+"clock": {
+  "format": "{:%H\n%M }",               // 12-hour time with AM/PM
+  "format-alt": "{  %d·%m·%y}",
+  "orientation":"inherit",
+    "tooltip-format": "<span>{calendar}</span>",  // show calendar on hover or click
+  "calendar": {
+    "mode": "month",                     // full month view
+    "format": {
+      "months": "<span color='#ff6699'><b>{}</b></span>",
+      "days":   "<span color='#cdd6f4'><b>{}</b></span>",
+      "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+      "today": "<span color='#ffcc66'><b>{}</b></span>"
+    }
+  }
+},
+
+
+
+
+
+  "battery": {
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "network": {
+    "format-wifi": "󰤨 ",
+    "format-ethernet": "󰈀 {ifname}",
+    "on-click": "exec nmtui",
+    "tooltip-format":"{essid}",
+    "tooltip": true
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": "",
+    "tooltip-format":"{device_alias}",
+    "tooltip": true,
+    "on-click":"exec blueman-manager"
+  },
+
+   
+"pulseaudio": {
+  "format": "{icon}",
+  "format-icons": {
+    // Fallback/default icons
+    "default": ["", "", ""],
+
+    // Headphones (wired or wireless)
+    "headphones": "",
+    "handsfree": "",
+    "headset": "",
+    "portable": "",
+  },
+  "tooltip": true,
+  "tooltip-format": "{desc} {volume}%",
+  "on-click":"exec pavucontrol",
+  "on-click-right":"exec blueman-manager"
+},
+
+"pulseaudio/slider":{
+    "min":0,
+    "max":100,
+    "orientation":"vertical"
+  },
+
+
+
+
+  "tray": {
+    "spacing": 10
+  },
+
+  "custom/uptime": {
+    "exec": "uptime -p | sed 's/up //'",
+    "interval": 60,
+    "format": "" ,
+    "format-alt":"{}",
+    "tooltip": true,
+    "tooltip-format":"{}"
+  },
+
+  "custom/tray_separator": {
+    "exec": "echo '___'",
+    "interval": 0,
+    "format": "{}",
+    "tooltip": false
+  },
+
+
+  "group/misc":{
+    "orientation":"inherit",
+    "drawer":{
+      "transition-duration":500,
+      "children-class": "misc-modules",
+      "transition-top-bottom":false
+    },
+    "modules":[
+    "custom/tray_separator",
+    "tray",
+    "custom/swaync"
+    ]
+  },
+
+  "custom/swaync": {
+    "format": "",  // Bell icon (Font Awesome or Nerd Font)
+    "tooltip": "Open Notification Center",
+    "on-click": "swaync-client -t",  // toggles the swaync window
+    "on-click-right": "swaync-client -C", // clear notifications on right click
+    "interval": 0
+},
+
+"group/pa":{
+    "orientation":"inherit",
+    "drawer":{
+      "transition-duration":500,
+      "children-class": "misc-modules",
+      "transition-top-bottom":false
+    },
+    "modules":[
+    "pulseaudio",
+    "pulseaudio/slider"
+    ]
+  },
+
+}

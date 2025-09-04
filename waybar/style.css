@@ -1,0 +1,290 @@
+@import url("/home/abdullah/.cache/wal/colors-waybar.css");
+
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family:SF Pro Text, JetBrainsMono Nerd Font, bargraph;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color:@background;
+    border-radius:8px;
+    min-height:50px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+  
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+
+#workspaces{
+  background-color:@background;
+  margin: 4px 0px;
+  border-radius:8px;
+  border:2px solid @background;
+
+}
+
+#workspaces > *{
+  background-color: transparent ;
+  margin: 4px 8px;
+  min-height:15px;
+  color: #ffffff;
+}
+
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    
+    color: #ffffff;
+    border-radius:8px;
+    min-height:30px;
+    
+  
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active{
+  
+  background-color:@color10;
+  border-radius:8px;
+  padding:0 35px;
+  font-weight:bold;
+  
+}
+
+#workspaces button:hover {
+    background: @color5;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#custom-cava,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @background;
+    color:#ffffff;
+    border-radius:8px;
+    padding:0 12px;
+      border:2px solid @background;
+
+  }
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: @color2;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+
+
+
+
+
+#network.disconnected {
+    
+    background-color:@background;
+  margin: 4px 0px;
+  border-radius:8px;
+  border:2px solid @background;
+
+    
+}
+
+
+
+
+#tray {
+    background: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+
+#custom-uptime{
+  margin-right:5px;
+}
+
+#custom-tray_separator{
+  color:#808080;
+}
+
+
+/*#modules {
+  background-color: @background;
+  border-radius: 8px;
+  padding:4px 0px;    margin: 6px 2px;
+  border:2px solid @background;
+
+}
+
+#modules > * {
+  background: transparent;
+  border: none;
+  
+    
+}
+*/
+#modules{
+  background-color:@background;
+  margin: 4px 0px;
+  border-radius:8px;
+  border:2px solid @background;
+  
+}
+
+#modules > *{
+  background-color: transparent ;
+  margin: 4px 18px;
+  min-height:15px;
+  color: #ffffff;
+}
+
+
+
+#pulseaudio-slider {
+    padding: 0;
+    margin: 0;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: green;
+}
+
+#window{
+  background-color:@background;
+  border-radius:8px;
+  padding: 0 12px;
+  font-size:16px;
+}
+
+#taskbar{
+  background-color:@background;
+  border-radius:8px;
+  padding: 0 12px;
+  border:2px solid @background;
+  
+  transition: all 0.2s ease-in-out;
+}
+
+#taskbar button:hover{
+  background-color:@background;
+}
+
+
+#custom-spotify{
+  background-color:@bakcground;
+  font-size:16px;
+}
+
+#custom-wlogout{
+ background-color: @background;
+    color:#ffffff;
+    border-radius:8px;
+    padding:0 12px;
+      border:2px solid @background;
+
+    }
+    
+  #custom-cava {
+    font-family: "Hack", "JetBrainsMono Nerd Font", monospace;
+    font-size: 22px;
+    color: #8FBC8F;
+    padding-bottom: 6px;
+    
+}
+

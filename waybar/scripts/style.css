@@ -1,0 +1,196 @@
+@import url("/home/abdullah/.cache/wal/colors-waybar.css");
+
+
+* {
+    font-family: "SF Pro Text";
+    font-size: 14px;
+    min-height: 0;
+    border: none;
+}
+
+window#waybar {
+    background:  @background; /* dark semi-transparent */
+    
+}
+
+
+#workspaces{
+  min-height:0px;
+  margin:20px;
+}
+
+
+#workspaces button {
+  background: linear-gradient(to left, @background, @color7);
+  border: none;
+  border-radius:8px;          /* pill shape */
+  min-width: 0;               /* ~1.5cm */
+  margin: 6px 12px;
+  color: #aaa;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  background: linear-gradient(to bottom, @color1, @color6); 
+  border-radius: 9999px;          /* pill shape */
+                /* ~3cm */
+  min-height: 80px;
+  color: #fff;
+  font-weight: 600;
+}
+
+
+
+
+/* Inactive workspaces: subtle circles */
+/*#workspaces button {
+  background: @color7;
+  border: none;
+  border-radius: 50%;
+  min-width:18px;
+  min-height:18px;
+  padding:0px;
+  margin: 12 12px;
+  color: #aaa;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  background: linear-gradient(to right, @color1, @color6); 
+  border-radius: 999px;
+  padding: 1px 12px;
+  margin:10px;
+  min-height:15px;
+  color: #fff;
+  font-weight: 600;
+  
+
+
+}*/
+
+
+#workspaces button:hover {
+  background: #5e81ac;
+  color: #fff;
+}
+
+
+#workspaces button.urgent {
+  background: #bf616a;
+  color: #fff;
+  border-radius: 999px;
+}
+
+
+
+
+#tray,
+#clock,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#window,
+#custom-launcher {
+    padding: 6px 12px;
+    margin: 4px 3px;
+    border-radius: 12px;
+    background: transparent;
+    color: @color4;
+    margin-left:10px;
+  
+  }
+
+#tray{
+  background:transparent;
+  margin-right:8px;
+
+}
+
+#clock{
+  background:transparent;
+  margin-top:13px;
+  font-size:28px;
+  
+  color:@color4;
+  font-family:PP Neue Machina,PP Neue Machina;
+}
+
+#battery{
+  background:transparent;
+  color:@color4;
+
+
+}
+
+#network{
+  background:transparent;
+  color:@color4;
+  margin-right:4px;
+  
+  font-size:18px;
+
+}
+
+#bluetooth{
+  background:transparent;
+  color:@color4;
+}
+
+#pulseaudio{
+  background:transparent;
+  color:@color4;
+  
+  margin:11px;
+  font-size:18px;
+}
+
+
+
+#custom-uptime{
+    
+
+    border-radius: 12px;
+    background: transparent;
+    color: @color4;
+    margin:11px;
+    font-size:18px;
+    margin-bottom:19px;
+    margin-left:2px;
+  }
+
+#custom-tray_separator {
+    font-weight:400;
+    color: #888; /* separator color */
+    margin-bottom:7px;
+}
+#pulseaudio-slider {
+  padding: 0px;
+  margin-right:0px;
+}
+
+#pulseaudio-slider slider{
+  border-radius:2px;
+}
+
+#pulseaudio-slider trough{
+  min-height:150px;
+  border-radius:5px;
+  color:@color4;
+}
+
+#pulseaudio-slider highlight{
+  border-radius:5px;
+  color: @color4;
+}
+
+
+.misc-modules{
+  font-size:15px;
+}
+
+#custom-swaync {
+    padding: 0 8px;
+    color: #ffffff;
+}
+
